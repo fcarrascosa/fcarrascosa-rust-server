@@ -40,9 +40,11 @@ ENTRYPOINT ["steamcmd" "+quit"]
 FROM steamcmd as rust-game-server
 
 RUN mkdir -p /app/rust && mkdir -p /app/scripts
-WORKDIR /app/rust
+WORKDIR /app/scripts
 
-COPY --chown=steam:steam /scripts/install_rust_cmd.sh /app/scripts/install_rust_cmd.sh
-RUN /app/scripts/install_rust_cmd.sh
+COPY --chmod=0755 /scripts/install_rust_cmd.sh /app/scripts/install_rust_cmd
+RUN ./install_rust_cmd
+
+WORKDIR /app/rust
 
 ENTRYPOINT ["./RustDedicated", "-batchmode"]
