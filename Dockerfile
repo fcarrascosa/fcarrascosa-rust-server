@@ -30,3 +30,19 @@ USER steam
 ### Run steam
 
 ENTRYPOINT ["steamcmd" "+quit"]
+
+######################################################################
+######################################################################
+####                       Rust Game Server                       ####
+######################################################################
+######################################################################
+
+FROM steamcmd as rust-game-server
+
+RUN mkdir -p /app/rust && mkdir -p /app/scripts
+WORKDIR /app/rust
+
+COPY --chown=steam:steam /scripts/install_rust_cmd.sh /app/scripts/install_rust_cmd.sh
+RUN /app/scripts/install_rust_cmd.sh
+
+ENTRYPOINT ["./RustDedicated", "-batchmode"]
