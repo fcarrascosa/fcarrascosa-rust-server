@@ -42,12 +42,13 @@ WORKDIR /app/scripts
 
 COPY ./scripts/install_rust_cmd.sh /app/scripts/install_rust_cmd
 COPY ./scripts/start_server.sh /app/scripts/start_server
-
-RUN chmod +x ./*
+RUN chown -R steam . && chmod +x ./*
 
 USER steam
+RUN mkdir -p /app/rust
 
-RUN ./install_rust_cmd
 WORKDIR /app/rust
+
+RUN /app/scripts/install_rust_cmd
 
 ENTRYPOINT ["/app/scripts/start_server"]
