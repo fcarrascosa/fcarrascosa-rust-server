@@ -46,10 +46,8 @@ COPY ./scripts/start_server.sh /app/scripts/start_server
 RUN chown -R steam:steam . && chmod +x ./*
 
 USER steam
-RUN mkdir -p /app/rust
+RUN mkdir -p /app/rust && /app/scripts/install_rust_cmd
 
 WORKDIR /app/rust
-
-RUN /app/scripts/install_rust_cmd
 
 ENTRYPOINT ["/app/scripts/start_server"]
