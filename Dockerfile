@@ -47,4 +47,6 @@ RUN ./install_rust_cmd
 
 WORKDIR /app/rust
 
-ENTRYPOINT ["./RustDedicated", "-batchmode"]
+COPY --chmod=0755 /scripts/start_server.sh /app/scripts/start_server
+
+ENTRYPOINT ["/app/scripts/start_server"]
