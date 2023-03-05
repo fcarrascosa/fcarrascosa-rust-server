@@ -37,12 +37,13 @@ ENTRYPOINT ["steamcmd" "+quit"]
 
 FROM steamcmd as rust-game-server
 
-RUN mkdir -p /app/rust && mkdir -p /app/scripts
+RUN mkdir -p /app/scripts
 WORKDIR /app/scripts
 
 COPY ./scripts/install_rust_cmd.sh /app/scripts/install_rust_cmd
 COPY ./scripts/start_server.sh /app/scripts/start_server
-RUN chown -R steam . && chmod +x ./*
+
+RUN chown -R steam:steam . && chmod +x ./*
 
 USER steam
 RUN mkdir -p /app/rust
