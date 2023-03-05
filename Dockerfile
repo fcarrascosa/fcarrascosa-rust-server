@@ -25,8 +25,6 @@ RUN chown -R steam:steam /app
 ### Add steam user
 
 WORKDIR /app
-USER steam
-
 ### Run steam
 
 ENTRYPOINT ["steamcmd" "+quit"]
@@ -47,6 +45,8 @@ RUN chmod +x ./install_rust_cmd && ./install_rust_cmd
 
 COPY ./scripts/start_server.sh /app/scripts/start_server
 RUN chmod +x ./start_server
+
+USER steam
 
 WORKDIR /app/rust
 
