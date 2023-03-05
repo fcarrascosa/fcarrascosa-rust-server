@@ -40,14 +40,15 @@ FROM steamcmd as rust-game-server
 RUN mkdir -p /app/scripts
 WORKDIR /app/scripts
 
-COPY ./scripts/install_rust_cmd.sh /app/scripts/install_rust_cmd
-COPY ./scripts/start_server.sh /app/scripts/start_server
+COPY ./scripts/install_rust_cmd.txt /app/scripts/install_rust_cmd.txt
+COPY ./scripts/start_server.sh /app/scripts/start_server.sh
 
-RUN chown -R steam:steam . && chmod +x ./*
+RUN chown -R steam:steam . && chmod +x ./*.sh
 
 USER steam
-RUN mkdir -p /app/rust && /app/scripts/install_rust_cmd
+RUN mkdir -p /app/rust 
+RUN steamcmd +runscript /app/scripts/install_rust_cmd.txt
 
 WORKDIR /app/rust
 
-ENTRYPOINT ["/app/scripts/start_server"]
+ENTRYPOINT ["/app/scripts/start_server.sh"]
