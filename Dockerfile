@@ -42,10 +42,10 @@ FROM steamcmd as rust-game-server
 RUN mkdir -p /app/rust && mkdir -p /app/scripts
 WORKDIR /app/scripts
 
-COPY /scripts/install_rust_cmd.sh /app/scripts/install_rust_cmd
+COPY ./scripts/install_rust_cmd.sh /app/scripts/install_rust_cmd
 RUN chmod +x ./install_rust_cmd && ./install_rust_cmd
 
-COPY /scripts/start_server.sh /app/scripts/start_server
+COPY ./scripts/start_server.sh /app/scripts/start_server
 RUN chmod +x ./start_server
 
 WORKDIR /app/rust
