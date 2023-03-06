@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  rust-server:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - "28015:28015/udp"
+      - "28016:28016/tcp"
+      - "28017:28017/tcp"
+      - "28082:28082/tcp"
