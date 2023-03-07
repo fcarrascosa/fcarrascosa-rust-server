@@ -38,7 +38,7 @@ ENTRYPOINT ["steamcmd" "+quit"]
 FROM steamcmd as rust-game-server
 
 ### Install RustCMD Dependencies
-#RUN apt install -y sqlite3
+RUN apt install -y sqlite3
 
 RUN mkdir -p /app/scripts
 WORKDIR /app/scripts
