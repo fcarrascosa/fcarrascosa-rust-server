@@ -52,6 +52,16 @@ USER steam
 RUN mkdir -p /app/rust 
 RUN steamcmd +runscript /app/scripts/install_rust_cmd.txt
 
+ENV SERVER_ID=fcarrascosa-rust-server
+ENV SERVER_PORT=28015
+ENV SERVER_QUERY_PORT=28016
+ENV SERVER_NAME="Fcarrascosa Rust Server"
+ENV SERVER_DESCRIPTION="A cool rust game server powered by docker."
+ENV SERVER_URL="https://rust.fcarrascosa.es"
+ENV RCON_PORT=28017
+ENV RCON_PASSWORD=changeMe
+ENV RCON_WEB=1
+
 WORKDIR /app/rust
 
 ENTRYPOINT ["/app/scripts/start_server.sh"]
