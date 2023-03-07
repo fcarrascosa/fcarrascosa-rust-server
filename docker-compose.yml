@@ -10,3 +10,6 @@ services:
       - "28016:28016/tcp"
       - "28017:28017/tcp"
       - "28082:28082/tcp"
+    volumes:
+      - /home/mounted/shared/docker/rust-server/server:/app/rust/server:rw
+      - /etc/localtime:/etc/localtime:ro
