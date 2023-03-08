@@ -12,7 +12,7 @@ then
     fi
     
     echo "======== Initialize Carbon ========"
-    source /app/server/carbon/tools/environment.sh
+    source /app/rust/carbon/tools/environment.sh
 fi
 
 echo "======== Start Rust Server ========"
