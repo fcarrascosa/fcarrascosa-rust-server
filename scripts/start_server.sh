@@ -10,7 +10,7 @@ if [$CARBON_ENABLE] then
     fi
     
     echo "======== Initialize Carbon ========"
-    source /app/server/carbon/tools/environment.sh
+    /app/server/carbon/tools/environment.sh
 fi
 
 echo "======== Start Rust Server ========"
