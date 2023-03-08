@@ -22,3 +22,5 @@ services:
     volumes:
       - ${SERVER_VOLUME_DIRECTORY}/server/${SERVER_ID}:/app/rust/server/${SERVER_ID}:rw
       - /etc/localtime:/etc/localtime:ro
+      ## IF CARBON_ENABLE IS ON
+      - ${SERVER_VOLUME_DIRECTORY}/carbon:/app/rust/carbon:rw
