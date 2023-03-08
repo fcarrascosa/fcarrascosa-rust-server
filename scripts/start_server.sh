@@ -1,7 +1,7 @@
 #!/bin/bash
 cat /app/scripts/credits.txt
 
-export LD_LIBRARY_PATH=/app/rust/RustDedicated_Data/Plugins/x86_64
+export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/app/rust/RustDedicated_Data/Plugins/x86_64"
 
 if [ $CARBON_ENABLE ] 
 then
