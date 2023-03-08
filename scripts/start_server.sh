@@ -3,8 +3,8 @@ cat /app/scripts/credits.txt
 
 export LD_LIBRARY_PATH=/app/rust/RustDedicated_Data/Plugins/x86_64
 
-if [$CARBON_ENABLED] then
-    if [! -d "/app/rust/carbon"] || [$UPDATE_CARBON] then
+if [$CARBON_ENABLE] then
+    if [! -d "/app/rust/carbon"] || [$CARBON_UPDATE] then
         echo "======== Installing or Updating Carbon Mod ========"
         /app/scripts/install_carbon.sh
     fi
