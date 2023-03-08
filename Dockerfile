@@ -45,7 +45,6 @@ WORKDIR /app/scripts
 
 COPY ./misc/credits.txt /app/scripts/
 COPY ./scripts/* /app/scripts/
-COPY source dest
 
 RUN chown -R steam:steam . && chmod +x ./*.sh
 
