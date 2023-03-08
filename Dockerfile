@@ -43,8 +43,9 @@ RUN apt install -y sqlite3
 RUN mkdir -p /app/scripts
 WORKDIR /app/scripts
 
-COPY ./scripts/install_rust_cmd.txt /app/scripts/install_rust_cmd.txt
-COPY ./scripts/start_server.sh /app/scripts/start_server.sh
+COPY ./misc/credits.txt /app/scripts/
+COPY ./scripts/* /app/scripts/
+COPY source dest
 
 RUN chown -R steam:steam . && chmod +x ./*.sh
 
@@ -65,6 +66,8 @@ ENV SERVER_MAXPLAYERS=200
 ENV RCON_PORT=28017
 ENV RCON_PASSWORD=changeMe
 ENV RCON_WEB=1
+ENV CARBON_ENABLE=0
+ENV CARBON_UPDATE=0
 
 WORKDIR /app/rust
 

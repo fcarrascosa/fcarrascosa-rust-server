@@ -1,5 +1,20 @@
 #!/bin/bash
+cat /app/scripts/credits.txt
+
 export LD_LIBRARY_PATH=/app/rust/RustDedicated_Data/Plugins/x86_64
+
+if [$CARBON_ENABLED] then
+    if [! -d "/app/rust/carbon"] || [$UPDATE_CARBON] then
+        echo "======== Installing or Updating Carbon Mod ========"
+        /app/scripts/install_carbon.sh
+    fi
+    
+    echo "======== Initialize Carbon ========"
+    source /app/server/carbon/tools/environment.sh
+fi
+
+echo "======== Start Rust Server ========"
+
 /app/rust/RustDedicated \
     -batchmode \
     -load \
