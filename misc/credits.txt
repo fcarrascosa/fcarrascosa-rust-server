@@ -4,3 +4,4 @@
 /** Author @fcarrascosa_dev (https://github.com/fcarrascosa/)             **/
 /** Support https://github.com/fcarrascosa/fcarrascosa-rust-server/issues **/
 /***************************************************************************/
+
