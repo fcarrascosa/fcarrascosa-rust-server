@@ -17,7 +17,8 @@ services:
       SERVER_ID: ${SERVER_ID}
       RCON_PASSWORD: ${RCON_PASSWORD}
       CARBON_ENABLE: ${CARBON_ENABLE}
-      CARBON_UPDATE: ${CARBON_UPDATE} 
+      CARBON_UPDATE: ${CARBON_UPDATE}
+      CARBON_VERSION: ${CARBON_VERSION}
 
     volumes:
       - ${SERVER_VOLUME_DIRECTORY}/server/${SERVER_ID}:/app/rust/server/${SERVER_ID}:rw
