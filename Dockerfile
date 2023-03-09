@@ -17,7 +17,7 @@ RUN dpkg --add-architecture i386 && \
         libcurl4-gnutls-dev:i386 \
         libsdl2-2.0-0:i386 \
         libgdiplus \
-        libsqlite3 \
+        sqlite3 \
         curl && \
     echo steam steam/question select "I AGREE" | debconf-set-selections && \
 	echo steam steam/license note '' | debconf-set-selections && \
