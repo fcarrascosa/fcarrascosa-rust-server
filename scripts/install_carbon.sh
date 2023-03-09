@@ -3,8 +3,8 @@ CARBON_URL="https://github.com/CarbonCommunity/Carbon.Core/releases/download/${C
 
 echo "Pulling latest Carbon $CARBON_VERSION build from $CARBON_URL"
 
-curl -L $CARBON_URL | \
-mkdir -p /app/carbon && tar -xz -C /app/carbon/
+mkdir -p /app/carbon
+curl -L $CARBON_URL | tar -xz -C /app/carbon/
 
 echo "Move Carbon files to Server Directory"
 cp -prv /app/carbon/* /app/rust/
