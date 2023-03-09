@@ -15,7 +15,8 @@ RUN dpkg --add-architecture i386 && \
         lib32stdc++6 \
         libc6-i386 \
         libcurl4-gnutls-dev:i386 \
-        libsdl2-2.0-0:i386 && \
+        libsdl2-2.0-0:i386 \
+        curl && \
     echo steam steam/question select "I AGREE" | debconf-set-selections && \
 	echo steam steam/license note '' | debconf-set-selections && \
     apt install -y steamcmd && \
