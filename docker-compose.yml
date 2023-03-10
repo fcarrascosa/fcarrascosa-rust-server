@@ -19,6 +19,7 @@ services:
       CARBON_ENABLE: ${CARBON_ENABLE}
       CARBON_UPDATE: ${CARBON_UPDATE}
       CARBON_VERSION: ${CARBON_VERSION}
+      RUST_APP_PORT: ${RUST_APP_PORT}
 
     volumes:
       - ${SERVER_VOLUME_DIRECTORY}/server/${SERVER_ID}:/app/rust/server/${SERVER_ID}:rw
