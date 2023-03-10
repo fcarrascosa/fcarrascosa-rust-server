@@ -10,7 +10,7 @@ services:
       - "28015:28015/udp"
       - "28016:28016/udp"
       - "28017:28017/tcp"
-      - "28082:28082/tcp"
+      - "${RUST_APP_PORT}:${RUST_APP_PORT}/tcp"
     environment:
       SERVER_NAME: ${SERVER_NAME}
       SERVER_DESCRIPTION: ${SERVER_DESCRIPTION}
