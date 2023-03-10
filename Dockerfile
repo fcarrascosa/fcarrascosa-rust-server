@@ -35,11 +35,8 @@ RUN dpkg --add-architecture i386 && \
 ### Add steam utils/safeties and direcrtories
 
 RUN ln -s /usr/games/steamcmd /usr/local/bin/steamcmd
-RUN adduser --gecos "" --disabled-password steam
 RUN mkdir /app
-RUN chown -R steam:steam /app
-
-### Add steam user
+RUN chown -R 1000:1000 /app
 
 WORKDIR /app
 ### Run steam
@@ -60,9 +57,11 @@ WORKDIR /app/scripts
 COPY ./misc/credits.txt /app/scripts/
 COPY ./scripts/* /app/scripts/
 
-RUN chown -R steam:steam . && chmod +x ./*.sh
+RUN chown -R 1000:1000 . && chmod +x ./*.sh
 
-USER steam
+ENV PGID 1000
+ENV PUID 1000
+
 RUN mkdir -p /app/rust 
 RUN steamcmd +runscript /app/scripts/install_rust_cmd.txt
 
@@ -76,6 +75,7 @@ ENV SERVER_SEED=12345
 ENV SERVER_WORLDSIZE=3500
 ENV SERVER_URL="https://github.com/fcarrascosa"
 ENV SERVER_MAXPLAYERS=200
+ENV RUST_APP_PORT=28082
 ENV RCON_PORT=28017
 ENV RCON_PASSWORD=changeMe
 ENV RCON_WEB=1

@@ -34,4 +34,5 @@ echo "======== Start Rust Server ========"
     +server.maxplayers $SERVER_MAXPLAYERS \
     +rcon.port $RCON_PORT \
     +rcon.password $RCON_PASSWORD \
-    +rcon.web $RCON_WEB
+    +rcon.web $RCON_WEB \
+    +app.port $RUST_APP_PORT
